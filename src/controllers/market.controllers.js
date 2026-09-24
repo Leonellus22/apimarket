@@ -21,10 +21,10 @@ export const getUsuario = async (req, res) => {
       }
       res.json({ message: "Encontrado" });
     } catch (error) {
-      console.error("ERROR EN getProductos:", error); 
-        return res.status(500).json({ message: "Algo salio mal", detalle: error.message }); } };
+      console.error("ERROR EN getUsuario:", error);
+      return res.status(500).json({ message: "Algo salio mal", detalle: error.message });
     }
-  };
+};
 
 export const postUsuarios = async (req, res) => {
   try {
@@ -96,18 +96,18 @@ export const postUsuarios = async (req, res) => {
     }
   };
   
-  export const getProductos=async(req,res)=>{
-    try{
+export const getProductos = async (req, res) => {
+    try {
       const [rows] = await pool.query("SELECT * FROM productos");
       if (rows.length <= 0) {
         return res.status(404).json({ message: "No hay productos registrados" });
       }
       res.json({ productos: rows });
-    }catch(error){
-        console.error("ERROR EN getProductos:", error); 
-        return res.status(500).json({ message: "Algo salio mal", detalle: error.message }); } };
+    } catch (error) {
+      console.error("ERROR EN getProductos:", error);
+      return res.status(500).json({ message: "Algo salio mal", detalle: error.message });
     }
-  };
+};
 
   export const getProductosId=async(req,res)=>{
     try{

@@ -21,7 +21,8 @@ export const getUsuario = async (req, res) => {
       }
       res.json({ message: "Encontrado" });
     } catch (error) {
-      return res.status(500).json({ message: 'Algo salio mal'});
+      console.error("ERROR EN getProductos:", error); 
+        return res.status(500).json({ message: "Algo salio mal", detalle: error.message }); } };
     }
   };
 
@@ -103,7 +104,8 @@ export const postUsuarios = async (req, res) => {
       }
       res.json({ productos: rows });
     }catch(error){
-        return res.status(500).json({ message: "Algo salio mal" });
+        console.error("ERROR EN getProductos:", error); 
+        return res.status(500).json({ message: "Algo salio mal", detalle: error.message }); } };
     }
   };
 
